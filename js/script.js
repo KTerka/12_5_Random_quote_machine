@@ -16,6 +16,17 @@ function createTweet(input) {
     if (!quoteAuthor.length) {
         quoteAuthor = "Unknown author";
     }
+	
+	var tweetText = "Quote of the day - " + quoteText + " Author: " + quoteAuthor;
+	if (tweetText.lenght > 140) {
+		getQuote();
+	}else  {
+		var tweet = tweetLink + encodeURIComponent(tweetText);
+		$('.quote').text(quoteText);
+		$('.author').text("Author: " + quoteAuthor);
+		$('.tweet').attr('href', tweet);
+	}
+		
 }
 	
 });
